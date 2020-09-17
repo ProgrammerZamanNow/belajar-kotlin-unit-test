@@ -38,4 +38,10 @@ class CalculatorTest {
         }
     }
 
+    @Disabled("Sedang Diperbaiki")
+    @Test
+    fun testComingSoon(){
+        // belum selesai
+    }
+
 }
