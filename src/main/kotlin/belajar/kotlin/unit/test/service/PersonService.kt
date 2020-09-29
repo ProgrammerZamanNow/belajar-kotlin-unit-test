@@ -2,6 +2,7 @@ package belajar.kotlin.unit.test.service
 
 import belajar.kotlin.unit.test.model.Person
 import belajar.kotlin.unit.test.repository.PersonRepository
+import java.util.*
 
 class PersonService(private val personRepository: PersonRepository) {
 
@@ -16,6 +17,19 @@ class PersonService(private val personRepository: PersonRepository) {
         } else {
             throw Exception("Person not found")
         }
+    }
+
+    fun register(name: String): Person {
+        if (name.isBlank()) {
+            throw IllegalArgumentException("Person name is blank")
+        }
+
+        val id = UUID.randomUUID().toString()
+        val person = Person(id, name)
+
+        personRepository.insert(person)
+
+        return person
     }
 
 }

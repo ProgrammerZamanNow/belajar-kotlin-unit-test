@@ -6,4 +6,6 @@ interface PersonRepository {
 
     fun selectById(id: String): Person?
 
+    fun insert(person: Person)
+
 }
